@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Link from 'next/link'
 import 'swiper/css'
 import { Barber } from '@/app/interfaces';
-import Image from 'next/image'
+import CustomImage from '../main/customImage';
 
 function BarberComponent({ barbers }: {barbers: Barber[]}) {
   return (
@@ -26,15 +26,16 @@ function BarberComponent({ barbers }: {barbers: Barber[]}) {
               gap: 2,
             }}
           >
-            <Image
-              alt={`${barber.name} image`}
-              src={barber.img}
-              width={400}
-              height={700}
-              className={'rounded-xl max-w-full h-auto mx-auto'}
-              style={{
-                boxShadow: `0rem 8.2px 0.5rem ${barber.pallette}`
-              }}
+            <CustomImage
+            alt={`${barber.name} image`}
+            src={barber.img}
+            width={640}
+            height={960}
+            className={'rounded-xl max-w-full h-auto mx-auto'}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            style={{
+              boxShadow: `0rem 8.2px 0.5rem ${barber.pallette}`
+            }}
             />
             <Typography align='center' variant="h6" color="primary" component="div">
               {barber.name}

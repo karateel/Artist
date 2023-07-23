@@ -1,6 +1,8 @@
+'use client'
+
 import { Box, Typography } from '@mui/material'
 import VideoBackground from "./components/main/videobackground";
-// import BookNow from './components/main/booknow';
+
 
 function Home() {
   return (
@@ -14,7 +16,6 @@ function Home() {
           We provide zalupu i idi nahuj
         </Typography>
       </Box>
-      {/* <BookNow/> */}
     </>
   );
 }

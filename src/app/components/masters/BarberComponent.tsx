@@ -1,60 +1,64 @@
-import { Card, CardContent, CardMedia, Typography, Container } from '@mui/material';
+'use client'
 
-// Define the data for barbers
-interface Barbers {
-  barbersName: string[];
-  barbersInfo: string[];
-  barbersImg: string[];
-  barbersGradient: string[];
-}
+import { Box, Typography, Button } from '@mui/material';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import Link from 'next/link'
+import 'swiper/css'
+import { Barber } from '@/app/interfaces';
+import Image from 'next/image'
 
-
-const barbers: Barbers = {
-  barbersName: ['Ваня Педрила', 'Влад Чертила', 'Макс Хуила', 'Дима Пидор', 'Дима Гандон'],
-  barbersInfo: ['1', '2', '3', '4', '5'],
-  barbersImg: [
-    '/masters/Vanya.jpg',
-    '/masters/Vlados.jpg',
-    '/masters/Mahon.jpg',
-    '/masters/DimaPidor.jpg',
-    '/masters/DimaGandon.jpg',
-  ],
-  barbersGradient: [
-    'linear-gradient(90deg, #A8943D, #111111)',
-    'linear-gradient(#A8943Dff, #111111)',
-    'linear-gradient(#A8943Dff, #111111)',
-    'linear-gradient(#A8943Dff, #111111)',
-    'linear-gradient(#A8943Dff, #111111)',
-  ]
-}
-
-export default function BarberComponent() {
+function BarberComponent({ barbers }: {barbers: Barber[]}) {
   return (
-    <>
-      {barbers.barbersName.map((barberName, index) => (
-        <Container maxWidth='xl'>
-          <Card className="flex items-center w-full m-auto rounded-none pt-6 relative" key={index}>
-            <CardMedia
-              alt={`${barberName} image`}
-              src={barbers.barbersImg[index]}
-              className="max-w-[200px] max-h-[200px]"
-              component="img"
-            />
-            <CardContent 
+    <Swiper
+      spaceBetween={50}
+      slidesPerView={1}
+      navigation
+      centeredSlides={true}
+      autoHeight={true}
+    >
+      {barbers.map((barber, index) => (
+        <SwiperSlide
+          key={index}>
+          <Box
             sx={{
-              background: `${barbers.barbersGradient[index]}`,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 2,
             }}
-            className={'h-auto min-h-[200px] min-w-[600px] w-auto'}>
-              <Typography variant="h6" color="primary" component="div">
-                {barberName}
-              </Typography>
-              <Typography variant="body2" color="secondary">
-                {barbers.barbersInfo[index]}
-              </Typography>
-            </CardContent>
-          </Card>
-        </Container>
-      ))}
-    </>
+          >
+            <Image
+              alt={`${barber.name} image`}
+              src={barber.img}
+              width={400}
+              height={700}
+              className={'rounded-xl max-w-full h-auto mx-auto'}
+              style={{
+                boxShadow: `0rem 8.2px 0.5rem ${barber.pallette}`
+              }}
+            />
+            <Typography align='center' variant="h6" color="primary" component="div">
+              {barber.name}
+            </Typography>
+            <Typography align='center' variant="body2" color="secondary">
+              {barber.info}
+            </Typography>
+            <Typography align='center' component='div'>
+              <Button variant='outlined'>
+                <Link
+                  key={barber.id}
+                  href={`/team/[id]`}
+                  as={`/team/${barber.id}`}
+                >
+                  Больше о {barber.name}
+                </Link>
+              </Button>
+            </Typography>
+          </Box>
+        </SwiperSlide>
+      ))
+      }
+    </Swiper >
   );
 }
+
+export default BarberComponent

@@ -1,8 +1,10 @@
 import './styles/globals.css'
 import type { Metadata } from 'next'
 import AHeader from './components/header/a-header'
-import MyApp from './palette/_app'
+import MyApp from './_app'
 import { Montserrat } from 'next/font/google'
+import { Container } from '@mui/material'
+
 
 const montserrat = Montserrat({
   weight: ['100', '200', '300', '400', '500', '600', '700'],
@@ -21,10 +23,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>
+      <body className={`${montserrat.className}`}>
         <MyApp>
-          <AHeader/>
-          {children}
+          <AHeader />
+          <Container maxWidth="xl"
+          sx={{ py: 4 }}
+          >
+            {children}
+          </Container>
         </MyApp>
       </body>
     </html>

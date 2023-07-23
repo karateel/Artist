@@ -3,16 +3,12 @@
 import { useState } from 'react'
 import { Box, Menu, Tooltip, IconButton, Avatar, MenuItem, Typography } from '@mui/material'
 import Link from 'next/link'
+import { UserSettings } from '@/app/interfaces/header'
 
-interface UserSettings {
-    settings: string[],
-    href: string[]
-}
-
-const userSettings: UserSettings = {
-    settings: ['Profilj', 'Nastrojki'],
-    href: ['/user/profile', '/user/settings']
-}
+const userSettings: UserSettings[] = [
+  {settings: 'Profile', href: '/user/profile'},
+  {settings: 'Settings', href: '/user/settings'}
+]
 
 const classes = 'hover:text-black hover:bg-primary'
 
@@ -51,14 +47,14 @@ export default function AUserSettings() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-            {userSettings.settings.map((setting, index) => (
+            {userSettings.map(setting => (
                 <MenuItem 
                 className={
                     classes
                 }
-                key={setting} onClick={handleCloseUserMenu}>
+                key={setting.href} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">
-                    <Link href={userSettings.href[index]}>{setting}</Link>
+                    <Link href={setting.href}>{setting.settings}</Link>
                   </Typography>
                 </MenuItem>
               ))}

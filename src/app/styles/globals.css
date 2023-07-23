@@ -3,5 +3,12 @@
 @tailwind utilities;
 
 body {
-    background-color: #F6F6F6;
+    background-color: #111111;
+}
+
+.div-with-colored-shadows {
+  box-shadow: 
+    0 0 10px red,
+    0 0 20px green,
+    0 0 30px blue;
 }

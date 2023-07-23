@@ -4,33 +4,37 @@ import { useState } from 'react'
 import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu'
 import Link from 'next/link'
-                
+import { usePathname } from 'next/navigation'
+import { NavigationItems } from '@/app/interfaces/header';
+import { motion } from 'framer-motion'
+
 const classes = 'hover:text-black hover:bg-primary'
 
-interface NavigationItems {
-    navItems: string[],
-    href: string[]
-} 
-
-const navigation: NavigationItems = {
-    navItems: ['Home', 'About', 'Masters', 'Salons', 'Gallery', 'Contact'],
-    href: ['/', '/about', '/masters', '/salons', '/gallery', '/contact']
-}
+const navigation: NavigationItems[] = [
+  { href: '/', navText: 'Home' },
+  { href: '/about', navText: 'About' },
+  { href: '/team', navText: 'Team' },
+  { href: '/salons', navText: 'Salons' },
+  { href: '/gallery', navText: 'Gallery' },
+  { href: '/contact', navText: 'Contact' }
+]
 
 export default function ANav() {
-    const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-  
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-      setAnchorElNav(event.currentTarget);
-    };
-  
-    const handleCloseNavMenu = () => {
-      setAnchorElNav(null);
-    };
+  const pathname = usePathname()
 
-    return (
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  return (
     <>
-        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, backgroundColor: '#111111' }}>
+      <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, backgroundColor: '#111111', }}>
         <IconButton
           size="large"
           aria-label="account of current user"
@@ -39,7 +43,7 @@ export default function ANav() {
           onClick={handleOpenNavMenu}
           color="secondary"
         >
-          <MenuIcon/>
+          <MenuIcon />
         </IconButton>
         <Menu
           id="menu-appbar"
@@ -59,38 +63,46 @@ export default function ANav() {
             display: { xs: 'block', md: 'none' },
           }}
         >
-        {navigation.navItems.map((item, index) => (
+          {navigation.map((item, index) => (
             <MenuItem
-            key={item}
-            className={classes}
+              key={item.href}
+              className={`${classes} ${pathname === item.href ? 'border-solid border-b-primary border-b-2' : ''}`}
             >
-                <Typography
+              <Typography
                 textAlign='center'
-                >
-                    <Link href={navigation.href[index]}>
-                        {item}
-                    </Link>
-                </Typography>
+              >
+                <Link
+                  href={item.href} replace prefetch>
+                  {item.navText}
+                </Link>
+              </Typography>
             </MenuItem>
-        ))}
+          ))}
         </Menu>
-        </Box>
-        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-        {navigation.navItems.map((item, index) => (
+      </Box>
+      <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+        {navigation.map((item) => (
+          <motion.div
+            whileHover={{ 
+              scale: 1.1, 
+            }}
+          >
             <MenuItem
-            key={item}
-            className={classes}
+              key={item.navText}
+              className={`${classes} ${pathname === item.href ? 'border-solid border-b-primary border-b-2' : ''}`}
             >
-                <Typography
+              <Typography
                 textAlign='center'
-                >
-                    <Link href={navigation.href[index]}>
-                        {item}
-                    </Link>
-                </Typography>
+              >
+                <Link
+                  href={item.href} replace prefetch>
+                  {item.navText}
+                </Link>
+              </Typography>
             </MenuItem>
+          </motion.div>
         ))}
-        </Box>
+      </Box>
     </>
-    )
+  )
 }

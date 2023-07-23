@@ -1,14 +1,13 @@
 'use client'
 
-import { AppBar, Toolbar, Typography, Container } from '@mui/material'
+import { AppBar, Toolbar, Typography } from '@mui/material'
 import ANav from "./a-nav"
 import AUserSettings from "./a-userSettings";
 
 export default function AHeader() {
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+    <AppBar position="static" sx={{px: 3}}>
+        <Toolbar disableGutters sx={{gap:2}}>
           <Typography
             variant="h6"
             noWrap
@@ -21,12 +20,12 @@ export default function AHeader() {
               letterSpacing: '.3rem',
               color: 'white',
               textDecoration: 'none',
-              justifyContent: 'center'
+              justifyContent: 'center',
             }}
           >
             LOGO
           </Typography>
-            <ANav/>
+            <ANav/> 
           <Typography
             variant="h5"
             noWrap
@@ -47,7 +46,6 @@ export default function AHeader() {
           </Typography>
           <AUserSettings />
         </Toolbar>
-      </Container>
     </AppBar>
   )
 }    

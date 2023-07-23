@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import BarberComponent from '../../components/masters/BarberComponent'
 import { Barber } from '@/app/interfaces';
-import { getBarbers } from '@/app/api/barbers';
+import { getBarbers } from '@/app/typescript/barbers';
 
 type Barbers = Barber[] & {
   length: number;
@@ -11,11 +11,11 @@ type Barbers = Barber[] & {
 };
 
 export default async function AMasters() {
-  const barbers:Barbers = await getBarbers('https://my-json-server.typicode.com/karateel/barber-json/barbers')
+  const barbers: Barbers = await getBarbers('https://my-json-server.typicode.com/karateel/barber-json/barbers')
 
   return (
     <Box className={'h-full bg-black'}>
-      <BarberComponent barbers={barbers}/>
+      <BarberComponent barbers={barbers} />
     </Box>
   )
 }

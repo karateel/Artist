@@ -1,7 +1,10 @@
-export default function ASalons () {
+import { Box } from '@mui/material'
+import SalonsComponent from '@/app/components/salons/SalonsComponent'
+
+export default function ASalons() {
     return (
-        <div>
-            Salons
-        </div>
+        <Box>
+            <SalonsComponent />
+        </Box>
     )
 }

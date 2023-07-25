@@ -1,4 +1,4 @@
-import LoaderLine from "@/app/components/main/loader"
+import LoaderLine from "@/app/components/reusable/loader"
 
 export default function Loading() {
     <LoaderLine />

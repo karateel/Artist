@@ -65,6 +65,7 @@ export default function ANav() {
         >
           {navigation.map((item) => (
             <MenuItem
+              onClick={() => {handleCloseNavMenu()}}
               key={item.href}
               className={`${classes} ${pathname === item.href ? 'border-solid border-b-primary border-b-2' : ''}`}
             >
@@ -83,9 +84,9 @@ export default function ANav() {
       <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
         {navigation.map((item) => (
           <motion.div
-          key={item.href}
-            whileHover={{ 
-              scale: 1.1, 
+            key={item.href}
+            whileHover={{
+              scale: 1.1,
             }}
           >
             <MenuItem

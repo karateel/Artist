@@ -6,5 +6,5 @@ export interface CustomImage {
   height: number,
   className?: string,
   style?: object,
-  sizes: string
+  sizes: string,
 }

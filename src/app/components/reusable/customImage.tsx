@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { CustomImage } from "@/app/interfaces";
 import { Skeleton } from '@mui/material'
-import Loader from "./loader";
 import { Suspense } from "react";
 
 export default function CustomImage({ src, width, height, alt, priority, className, style, sizes }: CustomImage) {

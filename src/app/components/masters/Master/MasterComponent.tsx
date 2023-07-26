@@ -1,17 +1,22 @@
-import { Container, Box, Button, Typography } from '@mui/material';
-import Link from 'next/link';
+import { Box, Typography, Button, Container } from '@mui/material';
 import { Barber } from '@/app/interfaces';
 import CustomImage from '../../reusable/customImage';
 
+import 'swiper/css'
+import 'swiper/css/pagination'
+import { ReactEventHandler } from 'react';
+
 interface MasterComponentProps {
   barber: Barber;
+  display?: Object,
+  state: any
 }
 
-const MasterComponent = ({ barber }: MasterComponentProps) => {
-  console.log(barber)
+const MasterComponent = ({ barber, display, state }: MasterComponentProps) => {
   return (
     <Container sx={{
       height: '100%',
+      display: display ?? 'block'
     }}>
       <Box
         sx={{
@@ -33,11 +38,9 @@ const MasterComponent = ({ barber }: MasterComponentProps) => {
           <Typography variant='h2'>
             {barber.name}
           </Typography>
-          <Link href={`/team`} as={'/team'}>
-            <Button className={'hover:text-black hover:bg-primary text-secondary'} variant="outlined">
+            <Button className={'hover:text-black hover:bg-primary text-secondary'} variant="outlined" onClick={state}>
               Back to All Masters
             </Button>
-          </Link>
         </Box>
       </Box>
     </Container>

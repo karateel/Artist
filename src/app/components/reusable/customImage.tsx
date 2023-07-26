@@ -1,12 +1,15 @@
 import Image from "next/image";
 import { CustomImage } from "@/app/interfaces";
-import { Box } from '@mui/material'
+import { Skeleton } from '@mui/material'
+import Loader from "./loader";
+import { Suspense } from "react";
 
 export default function CustomImage({ src, width, height, alt, priority, className, style, sizes }: CustomImage) {
   const prty = priority ? true : false
 
+
   return (
-    <Box className={'h-full w-full'}>
+    <Suspense fallback={<Skeleton/>}>
       <Image
         src={src}
         width={width}
@@ -16,7 +19,8 @@ export default function CustomImage({ src, width, height, alt, priority, classNa
         className={className}
         style={style}
         sizes={sizes}
+        loading="lazy"
       />
-    </Box>
+    </Suspense>
   )
 }

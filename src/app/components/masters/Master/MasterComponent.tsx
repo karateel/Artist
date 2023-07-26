@@ -4,12 +4,11 @@ import CustomImage from '../../reusable/customImage';
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { ReactEventHandler } from 'react';
 
 interface MasterComponentProps {
   barber: Barber;
-  display?: Object,
-  state: any
+  display?: string,
+  state: () => void;
 }
 
 const MasterComponent = ({ barber, display, state }: MasterComponentProps) => {

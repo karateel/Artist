@@ -12,7 +12,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 
 function BarberComponent({ barbers }: { barbers: Barber[] }) {
-  const [isHidden, setIsHidden] = useState<Boolean>(true);
+  const [isHidden, setIsHidden] = useState<boolean>(true);
   const [selectedBarber, setSelectedBarber] = useState<Barber | null>(null);
 
   const handleCard = (barber: Barber) => {

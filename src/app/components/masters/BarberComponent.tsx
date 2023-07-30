@@ -11,7 +11,7 @@ import Link from 'next/link'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
-function BarberComponent({ barbers }: { barbers: Barber[] }) {
+export default function BarberComponent({ barbers }: { barbers: Barber[] }) {
 
   return (
     <>
@@ -86,5 +86,3 @@ function BarberComponent({ barbers }: { barbers: Barber[] }) {
     </>
   );
 }
-
-export default BarberComponent

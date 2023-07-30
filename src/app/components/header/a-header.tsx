@@ -1,6 +1,5 @@
 import { AppBar, Toolbar, Typography } from '@mui/material'
 import ANav from "./a-nav"
-// import AUserSettings from "./a-userSettings";
 
 export default function AHeader() {
   return (
@@ -42,7 +41,6 @@ export default function AHeader() {
         >
           LOGO
         </Typography>
-        {/* <AUserSettings /> */}
       </Toolbar>
     </AppBar>
   )

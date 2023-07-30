@@ -3,20 +3,8 @@
 import { Grid, Card, Typography, CardContent, IconButton, Button } from '@mui/material'
 import CustomImage from '../reusable/customImage'
 import { Phone } from '@mui/icons-material'
-// import { useState } from 'react'
 
 const SalonsComponent = () => {
-  // const [open, setOpen] = useState(false);
-  // const [frame, setFrame] = useState(null);
-
-  // const handleOpen = () => {
-  //   const selectedSalon = data.find((salon) => salon.description === "Карта");
-  //   setOpen(true);
-  //   setFrame(selectedSalon.id);
-  // };
-
-  // const handleClose = () => setOpen(false);
-
   const data = [
     {
       id: 1,

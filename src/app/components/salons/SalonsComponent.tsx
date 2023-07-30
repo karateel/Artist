@@ -3,20 +3,19 @@
 import { Grid, Card, Typography, CardContent, IconButton, Button } from '@mui/material'
 import CustomImage from '../reusable/customImage'
 import { Phone } from '@mui/icons-material'
-import { useState } from 'react'
-import MapModal from '../reusable/map-modal'
+// import { useState } from 'react'
 
 const SalonsComponent = () => {
-  const [open, setOpen] = useState(false);
-  const [frame, setFrame] = useState(null);
+  // const [open, setOpen] = useState(false);
+  // const [frame, setFrame] = useState(null);
 
-  const handleOpen = () => {
-    const selectedSalon = data.find((salon) => salon.description === "Карта");
-    setOpen(true);
-    setFrame(selectedSalon.id);
-  };
+  // const handleOpen = () => {
+  //   const selectedSalon = data.find((salon) => salon.description === "Карта");
+  //   setOpen(true);
+  //   setFrame(selectedSalon.id);
+  // };
 
-  const handleClose = () => setOpen(false);
+  // const handleClose = () => setOpen(false);
 
   const data = [
     {
@@ -84,7 +83,7 @@ const SalonsComponent = () => {
                 justifyContent: "space-between",
               }}>
                 <Typography color="secondary" textAlign="end">
-                  <Button variant="outlined" onClick={handleOpen} color="primary">
+                  <Button variant="outlined" color="primary">
                     {item.description}
                   </Button>
                 </Typography>

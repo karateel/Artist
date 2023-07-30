@@ -42,7 +42,7 @@ export default function AHeader() {
         >
           LOGO
         </Typography>
-        <AUserSettings />
+        {/* <AUserSettings /> */}
       </Toolbar>
     </AppBar>
   )

@@ -4,4 +4,5 @@ export interface Barber {
   info: string
   img: string
   pallette: string
+  inst: string
 }

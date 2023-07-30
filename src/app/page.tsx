@@ -10,10 +10,10 @@ function Home() {
       {/* <VideoBackground /> */}
       <Box className={'absolute bottom-10 left-10'}>
         <Typography variant='h2' color='primary'>
-          Barbershop description
+          Artist Barbershop
         </Typography>
         <Typography variant='body2' color={'secondary'}>
-          We provide zalupu i idi nahuj
+          est. 2021
         </Typography>
       </Box>
     </>

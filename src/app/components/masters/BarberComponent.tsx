@@ -1,24 +1,17 @@
 'use client'
 
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, IconButton } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Barber } from '@/app/interfaces';
 import CustomImage from '../reusable/customImage';
 import { Pagination } from 'swiper/modules'
-import { useState } from 'react'
-import MasterComponent from './Master/MasterComponent';
+import { Instagram } from '@mui/icons-material';
+import Link from 'next/link'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
 
 function BarberComponent({ barbers }: { barbers: Barber[] }) {
-  const [isHidden, setIsHidden] = useState<boolean>(true);
-  const [selectedBarber, setSelectedBarber] = useState<Barber | null>(null);
-
-  const handleCard = (barber: Barber) => {
-    setSelectedBarber(barber);
-    setIsHidden(!isHidden);
-  };
 
   return (
     <>
@@ -33,7 +26,6 @@ function BarberComponent({ barbers }: { barbers: Barber[] }) {
         }}
         modules={[Pagination]}
         className="mySwiper"
-        style={{ display: isHidden ? 'block' : 'none' }}
       >
         {barbers.map((barber, index) => (
           <SwiperSlide key={index}>
@@ -55,27 +47,42 @@ function BarberComponent({ barbers }: { barbers: Barber[] }) {
                   boxShadow: `0rem 8.2px 0.5rem ${barber.pallette}`
                 }}
               />
+              <Box sx={{
+                maxWidth: '435px',
+                mx: 'auto',
+                position: 'relative',
+                width: '100%'
+              }}>
+              <Typography variant='body2' component='div'>
               <Typography align='center' variant="h6" color="primary" component="div">
                 {barber.name}
               </Typography>
               <Typography align='center' variant="body2" color="secondary">
                 {barber.info}
               </Typography>
-              <Typography align='center' component='div'>
-                <Button
-                  onClick={() => handleCard(barber)}
-                  variant='outlined'
-                >
-                  More about {barber.name}
-                </Button>
               </Typography>
+              <Typography align='right'
+              sx={{
+                position: 'absolute',
+                right: '0',
+                bottom: '0'
+              }}
+              >
+                <Link target="_blank" href={barber.inst}>
+                <IconButton 
+                color='secondary'
+                size='large'
+                aria-label='master-instagram'
+                >
+                  <Instagram/>
+                </IconButton>
+                </Link>
+              </Typography>
+              </Box>
             </Box>
           </SwiperSlide>
         ))}
       </Swiper>
-      {selectedBarber && (
-        <MasterComponent barber={selectedBarber} display={isHidden ? 'none' : 'block'} state={() => handleCard(selectedBarber as Barber)} />
-      )}
     </>
   );
 }

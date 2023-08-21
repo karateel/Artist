@@ -20,7 +20,7 @@ const SalonsComponent = () => {
       description: "Карта",
       img: "https://static9.depositphotos.com/1594920/1088/i/450/depositphotos_10889910-stock-photo-angry-chihuahua-growling-2-years.jpg",
       color: "rgba(250,100,0,1)",
-      number: "+380 (93) 604 91 90",
+      number: "+380 (63) 816 89 81",
     }
   ];
 

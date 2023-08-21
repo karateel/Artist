@@ -27,7 +27,7 @@ export default function RootLayout({
         <MyApp>
           <AHeader />
           <Container maxWidth="xl"
-          sx={{ py: 4 }}
+            sx={{ py: 4 }}
           >
             {children}
           </Container>

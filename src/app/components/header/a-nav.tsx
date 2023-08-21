@@ -6,7 +6,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { NavigationItems } from '@/app/interfaces/header';
-import { motion } from 'framer-motion'
+import BookingBtn from './boooking';
 
 const classes = 'hover:text-black hover:bg-primary'
 
@@ -65,7 +65,7 @@ export default function ANav() {
         >
           {navigation.map((item) => (
             <MenuItem
-              onClick={() => {handleCloseNavMenu()}}
+              onClick={() => { handleCloseNavMenu() }}
               key={item.href}
               className={`${classes} ${pathname === item.href ? 'border-solid border-b-primary border-b-2' : ''}`}
             >
@@ -79,31 +79,26 @@ export default function ANav() {
               </Typography>
             </MenuItem>
           ))}
+          <BookingBtn/>
         </Menu>
       </Box>
       <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
         {navigation.map((item) => (
-          <motion.div
-            key={item.href}
-            whileHover={{
-              scale: 1.1,
-            }}
+          <MenuItem
+            key={item.navText}
+            className={`${classes} ${pathname === item.href ? 'border-solid border-b-primary border-b-2' : ''}`}
           >
-            <MenuItem
-              key={item.navText}
-              className={`${classes} ${pathname === item.href ? 'border-solid border-b-primary border-b-2' : ''}`}
+            <Typography
+              textAlign='center'
             >
-              <Typography
-                textAlign='center'
-              >
-                <Link
-                  href={item.href} replace prefetch>
-                  {item.navText}
-                </Link>
-              </Typography>
-            </MenuItem>
-          </motion.div>
+              <Link
+                href={item.href} replace prefetch>
+                {item.navText}
+              </Link>
+            </Typography>
+          </MenuItem>
         ))}
+        <BookingBtn/>
       </Box>
     </>
   )

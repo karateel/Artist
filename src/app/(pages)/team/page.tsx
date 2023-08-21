@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import BarberComponent from '../../components/masters/BarberComponent'
 import { Barber } from '@/app/interfaces';
-import { getBarbers } from '@/app/typescript/barbers';
+import { getBarbers } from '@/app/lib/barbers';
 
 type Barbers = Barber[] & {
   length: number;

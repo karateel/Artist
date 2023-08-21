@@ -21,3 +21,7 @@ body {
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   bottom: 99% !important
 }
+
+.yButton {
+  @apply hidden
+}

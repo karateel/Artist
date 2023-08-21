@@ -7,4 +7,5 @@ export interface CustomImage {
   className?: string,
   style?: object,
   sizes: string,
+  blurData?: string
 }

@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material'
 
-export default function AContact() {
+
+export default async function AContact() {
     return (
         <Box>
             <Typography>

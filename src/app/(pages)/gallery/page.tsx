@@ -1,7 +1,11 @@
-export default function AGallery () {
+import { Box, Typography } from '@mui/material'
+
+export default function AAbout () {
     return (
-        <div>
+        <Box>
+            <Typography variant='h5' color='primary'>
             Gallery
-        </div>
+            </Typography>
+        </Box>
     )
 }

@@ -2,9 +2,7 @@
 const nextConfig = {
   images: {
     domains: [
-      'raw.githubusercontent.com',
-      'murchim.ru',
-      'static9.depositphotos.com',
+      'raw.githubusercontent.com'
     ],
   },
 }

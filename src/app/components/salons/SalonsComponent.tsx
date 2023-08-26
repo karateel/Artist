@@ -1,28 +1,23 @@
 'use client'
 
 import { Grid, Card, Typography, CardContent, IconButton, Button } from '@mui/material'
+import { useState } from 'react'
 import CustomImage from '../reusable/customImage'
 import { Phone } from '@mui/icons-material'
+import { Salons } from '@/app/interfaces'
+import dynamic from 'next/dynamic'
 
-const SalonsComponent = () => {
-  const data = [
-    {
-      id: 1,
-      title: "Глушко 16/18",
-      description: "Карта",
-      img: "https://murchim.ru/_sf/4/49531350.jpg",
-      color: "rgba(252,218,0,1)",
-      number: "+380 (93) 604 91 90",
-    },
-    {
-      id: 2,
-      title: "Люстдорфская 55/2",
-      description: "Карта",
-      img: "https://static9.depositphotos.com/1594920/1088/i/450/depositphotos_10889910-stock-photo-angry-chihuahua-growling-2-years.jpg",
-      color: "rgba(250,100,0,1)",
-      number: "+380 (63) 816 89 81",
-    }
-  ];
+const DynamicBarberMap = dynamic(() => import('../reusable/map-modal'), {
+  ssr: false
+});
+
+const SalonsComponent = ({ salons }: { salons: Salons[] }) => {
+
+  const [shownSalon, setShownSalon] = useState<Salons | null>(null);
+
+  const toggleMap = (salon: Salons) => {
+    setShownSalon(shownSalon === salon ? null : salon);
+  };
 
   return (
     <Grid container spacing={2}
@@ -32,24 +27,28 @@ const SalonsComponent = () => {
         }
       }}
     >
-      {data.map((item) => (
-        <Grid item xs={12} md={6} key={item.id}>
+      {salons.map((salon) => (
+        <Grid item xs={12} md={6} key={salon.id}>
           <Card
             sx={{
               maxWidth: "100%",
               width: "100%",
               minHeight: "100%",
-              boxShadow: `0px 15px 55px 0px ${item.color}`,
+              boxShadow: `0px 0px 23px 0px ${salon.color}`,
             }}
           >
-            <CustomImage
-              src={item.img}
-              alt="Salon photo"
-              width={1000}
-              height={550}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className={"min-h-[550px] max-h-[550px] object-cover"}
-            />
+            {shownSalon === salon ? (
+              <DynamicBarberMap lng={salon.lng} lat={salon.lat} />
+            ) : (
+              <CustomImage
+                src={salon.img}
+                alt="Salon photo"
+                width={1000}
+                height={550}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className={"min-h-[550px] max-h-[550px] object-cover"}
+              />
+            )}
             <CardContent
               sx={{
                 maxHeight: "150px",
@@ -61,8 +60,7 @@ const SalonsComponent = () => {
             >
 
               <Typography color="primary" textAlign="center" component="h2">
-                {item.title}
-
+                {salon.title}
               </Typography>
 
               <Typography component="div" sx={{
@@ -71,12 +69,12 @@ const SalonsComponent = () => {
                 justifyContent: "space-between",
               }}>
                 <Typography color="secondary" textAlign="end">
-                  <Button variant="outlined" color="primary">
-                    {item.description}
+                  <Button variant="outlined" color="primary" onClick={() => toggleMap(salon)}>
+                    {salon.description}
                   </Button>
                 </Typography>
                 <IconButton color="primary">
-                  <a href={`tel:${item.number}`}>
+                  <a href={`tel:${salon.number}`}>
                     <Phone />
                   </a>
                 </IconButton>

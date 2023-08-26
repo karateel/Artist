@@ -1,7 +1,11 @@
+import { Box, Typography } from '@mui/material'
+
 export default function AAbout () {
     return (
-        <div>
+        <Box>
+            <Typography variant='h5' color='primary'>
             About
-        </div>
+            </Typography>
+        </Box>
     )
 }

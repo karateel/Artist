@@ -1,5 +1,6 @@
 import { AppBar, Toolbar, Typography } from '@mui/material'
 import ANav from "./a-nav"
+import Image from 'next/image'
 
 export default function AHeader() {
   return (
@@ -20,7 +21,7 @@ export default function AHeader() {
             justifyContent: 'center',
           }}
         >
-          LOGO
+          <Image src='/logo.png' alt='Logo' height={64} width={64}/>
         </Typography>
         <ANav />
         <Typography

@@ -53,31 +53,31 @@ export default function BarberComponent({ barbers }: { barbers: Barber[] }) {
                 position: 'relative',
                 width: '100%'
               }}>
-              <Typography variant='body2' component='div'>
-              <Typography align='center' variant="h6" color="primary" component="div">
-                {barber.name}
-              </Typography>
-              <Typography align='center' variant="body2" color="secondary">
-                {barber.info}
-              </Typography>
-              </Typography>
-              <Typography align='right'
-              sx={{
-                position: 'absolute',
-                right: '0',
-                bottom: '0'
-              }}
-              >
-                <Link target="_blank" href={barber.inst}>
-                <IconButton 
-                color='secondary'
-                size='large'
-                aria-label='master-instagram'
+                <Typography variant='body2' component='div'>
+                  <Typography align='center' variant="h6" color="primary" component="div">
+                    {barber.name}
+                  </Typography>
+                  <Typography align='center' variant="body2" color="secondary" className={'max-w-[75%] my-0 mx-auto'}>
+                    {barber.info}
+                  </Typography>
+                </Typography>
+                <Typography align='right'
+                  sx={{
+                    position: 'absolute',
+                    right: '0',
+                    bottom: '0'
+                  }}
                 >
-                  <Instagram/>
-                </IconButton>
-                </Link>
-              </Typography>
+                  <Link target="_blank" href={barber.inst}>
+                    <IconButton
+                      color='secondary'
+                      size='large'
+                      aria-label='master-instagram'
+                    >
+                      <Instagram />
+                    </IconButton>
+                  </Link>
+                </Typography>
               </Box>
             </Box>
           </SwiperSlide>

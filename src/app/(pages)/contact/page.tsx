@@ -1,11 +1,10 @@
 import { Box, Typography } from '@mui/material'
 
-
-export default async function AContact() {
+export default function AAbout () {
     return (
         <Box>
-            <Typography>
-                Contacts
+            <Typography variant='h5' color='primary'>
+            Contacts
             </Typography>
         </Box>
     )

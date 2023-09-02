@@ -12,10 +12,10 @@ const classes = 'hover:text-black hover:bg-primary'
 
 const navigation: NavigationItems[] = [
   { href: '/', navText: 'Home' },
-  { href: '/about', navText: 'About' },
-  { href: '/team', navText: 'Team' },
+  { href: '/team', navText: 'Team' }, 
   { href: '/salons', navText: 'Salons' },
   { href: '/gallery', navText: 'Gallery' },
+  { href: '/about', navText: 'About' },
   { href: '/contact', navText: 'Contact' }
 ]
 

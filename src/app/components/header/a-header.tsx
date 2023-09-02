@@ -21,7 +21,7 @@ export default function AHeader() {
             justifyContent: 'center',
           }}
         >
-          <Image src='/logo.png' alt='Logo' height={64} width={64}/>
+          <Image src='/logo.png' alt='Logo' height={64} width={64} />
         </Typography>
         <ANav />
         <Typography
@@ -40,7 +40,7 @@ export default function AHeader() {
             textDecoration: 'none',
           }}
         >
-          LOGO
+          <Image src='/logo.png' alt='Logo' height={64} width={64} />
         </Typography>
       </Toolbar>
     </AppBar>

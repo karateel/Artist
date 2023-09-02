@@ -16,12 +16,26 @@ function Footer() {
         >
             <Container maxWidth="xl">
                 <Grid container direction="column" alignItems="center">
-                    <Grid item xs={12} alignSelf='self-end'>
+                    <Grid item xs={12} alignSelf='self-end' sx={{
+                        display: 'inline-flex',
+                        width: '100%',
+                        justifyContent: 'space-between',
+                        flexDirection: {
+                            xs: 'column',
+                            sm: 'row'
+                        },
+                    }}>
                         <Typography color="secondary" sx={{
                             display: 'flex',
-                            justifyContent: 'space-between',
+                            justifyContent: {
+                                xs: 'center',
+                                sm: 'space-between'
+                            },
                             alignItems: 'center',
-                            gap: '1rem'
+                            gap: '1rem',
+                            marginBottom: {
+                                xs: '0.5rem'
+                            }
                         }}>
                             developed by
                             <Link href="https://github.com/karateel" className={'text-primary'}>K.Yurov </Link>
@@ -29,8 +43,12 @@ function Footer() {
                         </Typography>
                         <Typography color="secondary" sx={{
                             display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center'
+                            justifyContent: {
+                                xs: 'center',
+                                sm: 'space-between'
+                            },
+                            alignItems: 'center',
+                            gap: '2rem',
                         }}>
                             deployed on
                             <Link rel="noopener noreferrer" href='https://vercel.com/' className={'text-primary'}>

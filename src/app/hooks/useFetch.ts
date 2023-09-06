@@ -1,26 +1,26 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 
-export function useDataFetching<T>(fetchFunction: () => Promise<T>) {
-  const [data, setData] = useState<T | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
+// export function useDataFetching<T>(fetchFunction: () => Promise<T>) {
+//   const [data, setData] = useState<T | null>(null);
+//   const [isLoading, setIsLoading] = useState(true);
+//   const [error, setError] = useState<Error | null>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await fetchFunction();
-        setData(result);
-        setIsLoading(false);
-      } catch (err:any) {
-        setError(err);
-        setIsLoading(false);
-      }
-    };
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const result = await fetchFunction();
+//         setData(result);
+//         setIsLoading(false);
+//       } catch (err:any) {
+//         setError(err);
+//         setIsLoading(false);
+//       }
+//     };
 
-    fetchData();
-  }, [fetchFunction]);
+//     fetchData();
+//   }, [fetchFunction]);
 
-  console.log(data)
+//   console.log(data)
 
-  return { data, isLoading, error };
-}
+//   return { data, isLoading, error };
+// }

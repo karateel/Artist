@@ -23,7 +23,6 @@ export default function ANav() {
   const pathname = usePathname()
 
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-  const [nav, setNav] = useState<NavigationItems[]>(navigation)
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -64,7 +63,7 @@ export default function ANav() {
             display: { xs: 'block', md: 'none' },
           }}
         >
-          {nav.map((item) => (
+          {navigation.map((item) => (
             <MenuItem
               onClick={() => { handleCloseNavMenu() }}
               key={item.href}

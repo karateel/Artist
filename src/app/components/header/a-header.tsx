@@ -5,7 +5,7 @@ import Image from 'next/image'
 export default function AHeader() {
   return (
     <AppBar position="static" sx={{ px: 3 }}>
-      <Toolbar disableGutters sx={{ gap: 2 }}>
+      <Toolbar disableGutters sx={{ gap: {md: 2} }}>
         <Typography
           variant="h6"
           noWrap

@@ -7,11 +7,13 @@ import CustomImage from '../reusable/customImage';
 import { Pagination } from 'swiper/modules';
 import { Instagram } from '@mui/icons-material';
 import Link from 'next/link';
+import { useState } from 'react';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 export default function BarberComponent({ barbers }: { barbers: Barber[] }) {
+  const [barber, setBarber] = useState<Barber[]>(barbers)
   return (
     <Swiper
       spaceBetween={50}
@@ -25,7 +27,7 @@ export default function BarberComponent({ barbers }: { barbers: Barber[] }) {
       modules={[Pagination]}
       className="mySwiper"
     >
-      {barbers.map((barber, index) => (
+      {barber.map((barber, index) => (
         <SwiperSlide key={index}>
           <Box
             sx={{

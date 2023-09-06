@@ -34,6 +34,7 @@ const SalonsComponent = ({ salons }: { salons: Salons[] }) => {
               maxWidth: "100%",
               width: "100%",
               minHeight: "100%",
+              border: '1px solid #FFCB74'
             }}
           >
             {shownSalon === salon ? (

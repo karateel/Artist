@@ -1,21 +1,37 @@
-import { Box } from '@mui/material'
-import BarberComponent from '../../components/masters/BarberComponent'
+'use client'
+
+import { useEffect, useState } from 'react';
+import BarberComponent from '../../components/masters/BarberComponent';
 import { Barber } from '@/app/interfaces';
-import { getData } from '@/app/lib/getData';
+import { getData } from '@/app/api/getData';
+import Loader from '@/app/components/reusable/loader';
 
-type Barbers = Barber[] & {
-  length: number;
-  pop(): Barber | undefined;
-  push(...items: Barber[]): number;
-  concat(...items: ConcatArray<Barber>[]): Barber[];
-};  
+export default function AMasters() {
+  const [barbers, setBarbers] = useState<Barber[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-export default async function AMasters() {
-  const barbers: Barbers = await getData('https://my-json-server.typicode.com/karateel/barber-json/artist', 0, 'barbers')
+  useEffect(() => {
+    const fetchBarbers = async () => {
+      try {
+        const data = await getData('https://my-json-server.typicode.com/karateel/barber-json/artist', 0, 'barbers');
+        setBarbers(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching barbers:', error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchBarbers();
+  }, []);
 
   return (
-    <Box className={'h-full bg-black'}>
-      <BarberComponent barbers={barbers} />
-    </Box>
-  )
+    <>
+      {isLoading ? (
+        <Loader/>
+      ) : (
+        <BarberComponent barbers={barbers} />
+      )}
+    </>
+  );
 }

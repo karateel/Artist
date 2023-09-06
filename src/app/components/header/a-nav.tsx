@@ -13,7 +13,7 @@ const classes = 'hover:text-black hover:bg-primary'
 const navigation: NavigationItems[] = [
   { href: '/', navText: 'Home' },
   { href: '/team', navText: 'Team' }, 
-  { href: '/salons', navText: 'Salons' },
+  { href: '/shops', navText: 'Shops' },
   { href: '/gallery', navText: 'Gallery' },
   { href: '/about', navText: 'About' },
   { href: '/contact', navText: 'Contact' }
@@ -23,6 +23,7 @@ export default function ANav() {
   const pathname = usePathname()
 
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [nav, setNav] = useState<NavigationItems[]>(navigation)
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -63,7 +64,7 @@ export default function ANav() {
             display: { xs: 'block', md: 'none' },
           }}
         >
-          {navigation.map((item) => (
+          {nav.map((item) => (
             <MenuItem
               onClick={() => { handleCloseNavMenu() }}
               key={item.href}

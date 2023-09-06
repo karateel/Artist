@@ -1,11 +1,13 @@
 import { Box, Typography } from '@mui/material'
 
-export default function AAbout () {
-    return (
-        <Box>
-            <Typography variant='h5' color='primary'>
-            About
-            </Typography>
-        </Box>
-    )
+const AboutPage: React.FC = () => {
+  return (
+    <Box>
+      <Typography color='primary'>
+        about page
+      </Typography>
+    </Box>
+  )
 }
+
+export default AboutPage

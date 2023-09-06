@@ -1,8 +1,5 @@
-'use client'
-
 import { Box, Typography } from '@mui/material'
 // import VideoBackground from "./components/reusable/videobackground";
-
 
 function Home() {
   return (

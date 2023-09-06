@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
 
-export default function AAbout () {
+const ContactPage:React.FC = () => {
     return (
         <Box>
             <Typography variant='h5' color='primary'>
@@ -9,3 +9,5 @@ export default function AAbout () {
         </Box>
     )
 }
+
+export default ContactPage

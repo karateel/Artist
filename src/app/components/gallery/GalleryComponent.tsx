@@ -1,4 +1,5 @@
-// components/Gallery.tsx
+'use client'
+
 import { ImageList, ImageListItem, useMediaQuery } from '@mui/material';
 import { PhotoTypes } from '@/app/interfaces';
 import CustomImage from '../reusable/customImage';

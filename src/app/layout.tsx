@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <link
+        <link
           rel="stylesheet"
           href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -33,13 +33,13 @@ export default function RootLayout({
       </head>
       <body className={`${montserrat.className}`}>
         <MyApp>
-          <AHeader/>
+          <AHeader />
           <Container component='main' maxWidth="xl"
-            sx={{ py: 4, position: 'relative', flex: '1'}}
+            sx={{ py: 4, position: 'relative', flex: '1' }}
           >
-            {children}
+              {children}
           </Container>
-          <AFooter/>
+          <AFooter />
         </MyApp>
       </body>
     </html>

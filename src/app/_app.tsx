@@ -63,7 +63,9 @@ export default function MyApp({ children }: {
           exit={{ opacity: 0, y: 15 }}
           transition={{ delay: 2.25 }}
           className={'flex h-screen flex-col'}
-        >{children}</motion.div>
+        >
+          {children}
+        </motion.div>
       </AnimatePresence>
     </ThemeProvider>
   );

@@ -13,7 +13,7 @@ const classes = 'hover:text-black hover:bg-primary'
 const navigation: NavigationItems[] = [
   { href: '/', navText: 'Home' },
   { href: '/team', navText: 'Team' }, 
-  { href: '/salons', navText: 'Salons' },
+  { href: '/shops', navText: 'Shops' },
   { href: '/gallery', navText: 'Gallery' },
   { href: '/about', navText: 'About' },
   { href: '/contact', navText: 'Contact' }

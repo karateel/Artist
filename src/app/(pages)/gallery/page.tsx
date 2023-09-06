@@ -1,27 +1,39 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-import GalleryComponent from '@/app/components/gallery/GalleryComponent';
-import { getPhotos } from '../api/getPhotos';
+import { getPhotos } from '@/app/api/getPhotos';
 import { PhotoTypes } from '@/app/interfaces';
+import GalleryComponent from '@/app/components/gallery/GalleryComponent';
+import Loader from '@/app/components/reusable/loader';
 
-const Gallery = () => {
-    const [photos, setPhotos] = useState<PhotoTypes[]>([]);
-  
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const { photos } = await getPhotos();
-          setPhotos(photos);
-        } catch (error) {
-          console.error('Error fetching photos:', error);
-        }
-      };
-  
-      fetchData();
-    }, []);
-  
-    return <GalleryComponent photos={photos} />;
-  };
+const GalleryPage:React.FC = () => {
+  const [photos, setPhotos] = useState<PhotoTypes[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-export default Gallery;
+  useEffect(() => {
+    const fetchPhotos = async () => {
+      try {
+        const { photos } = await getPhotos();
+        setPhotos(photos);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching photos:', error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchPhotos();
+  }, []);
+
+  return (
+    <>
+      {isLoading ? (
+        <Loader/>
+      ) : (
+        <GalleryComponent photos={photos} />
+      )}
+    </>
+  );
+};
+
+export default GalleryPage;

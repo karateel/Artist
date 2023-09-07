@@ -12,8 +12,10 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'Artist',
+  title: 'Barbershop Artist',
   description: 'By K.Yurov',
+  manifest: '/manifest.json',
+  icons: { apple: '/logo.png'},
 }
 
 export default function RootLayout({

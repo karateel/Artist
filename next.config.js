@@ -1,19 +1,20 @@
-/** @type {import('next').NextConfig} */
-const withPWA = require('next-pwa')
+const withPWA = require('@imbios/next-pwa')({
+  dest: 'public',
+  cacheOnFrontEndNav: true,
+  register: true
+})
 
-module.exports = {
+/** @type {import('next').NextConfig} */
+
+module.exports = withPWA({
   cleanDistDir: true,
   images: {
     domains: ['raw.githubusercontent.com', 'farm66.staticflickr.com'],
   },
   transpilePackages: ['@mui/material'],
-  i18n: {
-    defaultLocale: 'uk-UA',
-    locales: ['en-US', 'uk-UA'],
-  },
-  ...withPWA({
-    dest: 'public',
-    register: true,
-    cacheOnFrontEndNav: true,
-  }),
-}
+  // i18n: {
+  //   defaultLocale: 'uk-UA',
+  //   locales: ['en-US', 'uk-UA'],
+  // },
+
+})

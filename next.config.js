@@ -1,7 +1,7 @@
 const withPWA = require('@imbios/next-pwa')({
   dest: 'public',
   cacheOnFrontEndNav: true,
-  register: true
+  register: true,
 })
 
 /** @type {import('next').NextConfig} */

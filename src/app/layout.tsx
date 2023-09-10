@@ -15,7 +15,10 @@ export const metadata: Metadata = {
   title: 'Barbershop Artist',
   description: 'By K.Yurov',
   manifest: '/manifest.json',
-  icons: { apple: '/logo.png'},
+  icons: { apple: '/logo.png' },
+  applicationName: 'Artist Barbershop',
+  themeColor: '#111111',
+  openGraph: { creators: '@kirillisokay', description: 'Artist barbershop' },
 }
 
 export default function RootLayout({
@@ -39,7 +42,7 @@ export default function RootLayout({
           <Container component='main' maxWidth="xl"
             sx={{ py: 4, position: 'relative', flex: '1' }}
           >
-              {children}
+            {children}
           </Container>
           <AFooter />
         </MyApp>

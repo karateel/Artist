@@ -16,5 +16,9 @@ module.exports = withPWA({
   //   defaultLocale: 'uk-UA',
   //   locales: ['en-US', 'uk-UA'],
   // },
-
+  ...withPWA({
+    dest: 'public',
+    register: true,
+    cacheOnFrontEndNav: true,
+  }),
 })

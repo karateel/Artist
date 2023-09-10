@@ -5,7 +5,6 @@ const withPWA = require('@imbios/next-pwa')({
   runtimeCaching: true,
 })
 
-
 /** @type {import('next').NextConfig} */
 
 module.exports = withPWA({

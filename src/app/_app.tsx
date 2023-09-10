@@ -1,59 +1,25 @@
 'use client'
 
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { ThemeProvider } from '@mui/material/styles'
 import '@fontsource/montserrat'
 import { AnimatePresence, motion } from 'framer-motion';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#FFCB74',
-      dark: '#FFCB74'
-    },
-    secondary: {
-      main: '#F6F6F6',
-      dark: '#F6F6F6',
-    },
-    info: {
-      main: '#2F2F2F',
-      dark: '#2F2F2F',
-    },
-    success: {
-      main: '#111111',
-      dark: '#111111',
-    }
-  },
-  typography: {
-    fontFamily: 'Montserrat, sans-serif',
-  },
-  components: {
-    MuiPaper: {
-      styleOverrides: {
-        root: ({ }) => ({
-          backgroundColor: '#111111'
-        })
-      }
-    },
-    MuiMenuItem: {
-      styleOverrides: {
-        root: {
-          color: '#F6F6F6',
-        }
-      }
-    },
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#111111'
-        }
-      }
-    }
-  }
-});
+import { theme } from './plugins/mui'
+import { useEffect } from 'react';
 
 export default function MyApp({ children }: {
   children: React.ReactNode
 }) {
+  
+  useEffect(() => {
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').then((registration) => {
+        console.log('Service worker registered at scope:', registration.scope)
+      }).catch((error) => {
+        console.log('Service worker registration failed: ', error)
+      })
+    }
+  })
+
   return (
     <ThemeProvider theme={theme}>
       <AnimatePresence>
